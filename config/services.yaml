@@ -1,0 +1,31 @@
+parameters:
+  app.content_dir: '%kernel.project_dir%/content'
+  app.supported_locales: ['de', 'en']
+  app.public_url: '%env(APP_PUBLIC_URL)%'
+
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    bind:
+      $contentDirectory: '%app.content_dir%'
+      $supportedLocales: '%app.supported_locales%'
+      $environment: '%kernel.environment%'
+
+  App\:
+    resource: '../src/'
+    exclude:
+      - '../src/Content/Model/'
+      - '../src/Kernel.php'
+
+  League\CommonMark\CommonMarkConverter:
+    arguments:
+      $config:
+        html_input: strip
+        allow_unsafe_links: false
+
+  League\CommonMark\ConverterInterface: '@League\CommonMark\CommonMarkConverter'
+
+  App\Content\Markdown\MarkdownRenderer:
+    arguments:
+      $sanitizer: '@html_sanitizer.sanitizer.app.markdown'

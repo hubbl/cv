@@ -1,0 +1,25 @@
+framework:
+  secret: '%env(APP_SECRET)%'
+  default_locale: de
+  enabled_locales: ['de', 'en']
+  handle_all_throwables: true
+  router:
+    utf8: true
+  session: false
+  php_errors:
+    log: true
+  cache:
+    prefix_seed: cv_portfolio
+  translator:
+    fallbacks: ['de']
+  validation:
+    email_validation_mode: html5
+  html_sanitizer:
+    sanitizers:
+      app.markdown:
+        allow_safe_elements: true
+        max_input_length: 100000
+
+when@test:
+  framework:
+    test: true

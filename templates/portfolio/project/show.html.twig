@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ project.title }} — Alex Morgan{% endblock %}
+{% block meta_description %}{{ project.summary }}{% endblock %}
+{% block social_image %}<meta name="twitter:card" content="summary">{% endblock %}
+{% block body %}
+  <header class="page-header"><div class="container-shell"><a class="back-link" href="{{ path('app_project_index', {_locale: app.request.locale}) }}">← {{ 'actions.back_projects'|trans }}</a><p class="eyebrow mt-10">{{ 'project.label'|trans }}</p><h1 class="page-title max-w-4xl">{{ project.title }}</h1><p class="page-intro">{{ project.summary }}</p>{% if project.period %}<div class="mt-6"><twig:Period :period="project.period" /></div>{% endif %}</div></header>
+  <div class="container-shell section-space grid gap-14 lg:grid-cols-[minmax(0,1fr)_18rem]">
+    <div class="space-y-14">
+      {% if project.description %}<section><h2 class="detail-title">{{ 'sections.overview'|trans }}</h2><div class="prose-content">{{ project.description.html|raw }}</div></section>{% endif %}
+      {% if project.motivation %}<section><h2 class="detail-title">{{ 'sections.motivation'|trans }}</h2><div class="prose-content">{{ project.motivation.html|raw }}</div></section>{% endif %}
+      {% if project.architecture %}<section><h2 class="detail-title">{{ 'sections.architecture'|trans }}</h2><div class="prose-content">{{ project.architecture.html|raw }}</div></section>{% endif %}
+      {% if project.highlights %}<section><h2 class="detail-title">{{ 'sections.highlights'|trans }}</h2><ul class="semantic-list">{% for item in project.highlights %}<li>{{ item }}</li>{% endfor %}</ul></section>{% endif %}
+    </div>
+    <aside class="lg:border-l lg:border-white/10 lg:pl-8"><h2 class="mb-5 font-mono text-xs uppercase tracking-[0.18em] text-slate-500">{{ 'sections.stack'|trans }}</h2><div class="flex flex-wrap gap-2">{% for technology in project.technologies %}<twig:TechnologyBadge :technology="technology" />{% endfor %}</div>{% if project.links %}<div class="mt-10 space-y-3">{% for link in project.links %}<a class="text-link block" href="{{ link.url }}" target="_blank" rel="noreferrer">{{ link.label }} ↗</a>{% endfor %}</div>{% endif %}</aside>
+  </div>
+{% endblock %}

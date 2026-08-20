@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.locale }}" class="scroll-smooth">
+<head>
+  {% set page_title %}{% block title %}{{ 'site.title'|trans }}{% endblock %}{% endset %}
+  {% set page_description %}{% block meta_description %}{{ 'site.meta_description'|trans }}{% endblock %}{% endset %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ page_description|trim }}">
+  <meta name="theme-color" content="#0b1220">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="{{ app.request.locale == 'de' ? 'de_DE' : 'en_US' }}">
+  <meta property="og:title" content="{{ page_title|trim }}">
+  <meta property="og:description" content="{{ page_description|trim }}">
+  <meta property="og:url" content="{{ app_public_url|trim('/') }}{{ app.request.pathInfo }}">
+  <meta name="twitter:title" content="{{ page_title|trim }}">
+  <meta name="twitter:description" content="{{ page_description|trim }}">
+  {% block social_image %}
+    <meta property="og:image" content="{{ app_public_url|trim('/') }}/og.png">
+    <meta property="og:image:alt" content="Alex Morgan — Software Engineer">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="{{ app_public_url|trim('/') }}/og.png">
+  {% endblock %}
+  <title>{{ page_title|trim }}</title>
+  <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
+</head>
+<body class="min-h-screen bg-slate-950 text-slate-200 antialiased selection:bg-cyan-300 selection:text-slate-950">
+  <a href="#main-content" class="skip-link">{{ 'navigation.skip'|trans }}</a>
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-slate-950/85 backdrop-blur-xl">
+    <nav class="container-shell flex h-16 items-center justify-between" aria-label="{{ 'navigation.primary'|trans }}">
+      <a href="{{ path('app_home', {_locale: app.request.locale}) }}" class="group flex items-center gap-3 font-semibold tracking-tight text-white">
+        <span class="grid size-8 place-items-center rounded-lg border border-cyan-300/30 bg-cyan-300/10 font-mono text-xs text-cyan-300 transition group-hover:bg-cyan-300/20">&lt;/&gt;</span>
+        <span>Alex Morgan</span>
+      </a>
+      <div class="flex items-center gap-1 sm:gap-3">
+        <a class="nav-link {{ app.request.attributes.get('_route') starts with 'app_experience' ? 'nav-link-active' }}" href="{{ path('app_experience_index', {_locale: app.request.locale}) }}">{{ 'navigation.experience'|trans }}</a>
+        <a class="nav-link {{ app.request.attributes.get('_route') starts with 'app_project' ? 'nav-link-active' }}" href="{{ path('app_project_index', {_locale: app.request.locale}) }}">{{ 'navigation.projects'|trans }}</a>
+        <twig:LanguageSwitch />
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">{% block body %}{% endblock %}</main>
+
+  <footer class="border-t border-white/10 py-10">
+    <div class="container-shell flex flex-col gap-2 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+      <p>© {{ 'now'|date('Y') }} Alex Morgan</p>
+      <p>{{ 'footer.built_with'|trans }}</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,1 @@
+Technische Telemetrie und Release-Informationen liegen oft in getrennten Werkzeugen. Das Experiment untersucht, wie wenige, gut kuratierte Signale eine schnellere und sachlichere Release-Bewertung ermöglichen.

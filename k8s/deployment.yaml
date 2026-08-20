@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cv-portfolio
+  labels:
+    app.kubernetes.io/name: cv-portfolio
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: cv-portfolio
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: cv-portfolio
+    spec:
+      containers:
+        - name: app
+          image: cv-portfolio:local
+          imagePullPolicy: Never
+          ports:
+            - name: http
+              containerPort: 8080
+          env:
+            - name: APP_ENV
+              value: prod
+            - name: APP_DEBUG
+              value: "0"
+            - name: APP_PUBLIC_URL
+              value: http://cv.local
+            - name: APP_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: cv-portfolio
+                  key: app-secret
+          readinessProbe:
+            httpGet:
+              path: /de/
+              port: http
+            initialDelaySeconds: 3
+          livenessProbe:
+            httpGet:
+              path: /de/
+              port: http
+            initialDelaySeconds: 10
+          resources:
+            requests:
+              cpu: 50m
+              memory: 64Mi
+            limits:
+              cpu: 500m
+              memory: 256Mi

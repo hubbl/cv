@@ -1,0 +1,46 @@
+site:
+  title: 'Alex Morgan — Software Engineer'
+  meta_description: 'The portfolio and résumé of a software engineer focused on resilient web platforms.'
+navigation:
+  primary: Primary navigation
+  skip: Skip to content
+  experience: Experience
+  projects: Projects
+language:
+  switch: Switch language
+footer:
+  built_with: 'Built with Symfony, Twig & Tailwind CSS.'
+period:
+  present: present
+home:
+  profile: Profile
+  about_title: 'Technology with a clear purpose.'
+  experience_title: 'Selected experience'
+  projects_title: 'Selected projects'
+experience:
+  eyebrow: Professional journey
+  title: Experience
+  intro: 'A concise view of roles, responsibilities, and selected technical contributions.'
+projects:
+  eyebrow: Selected work
+  title: Projects
+  intro: 'Products and experiments where architecture, user value, and maintainability meet.'
+project:
+  label: Project
+sections:
+  overview: Overview
+  responsibilities: Responsibilities
+  selected_work: Selected work
+  highlights: Highlights
+  technology: Technologies
+  stack: Technical stack
+  motivation: Motivation
+  architecture: Architecture
+actions:
+  view_all: View all
+  back_experience: Back to experience
+  back_projects: Back to projects
+  home: Back to home
+error:
+  not_found: Page not found
+  not_found_text: 'The requested content does not exist or has not been translated yet.'

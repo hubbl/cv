@@ -1,0 +1,1 @@
+The platform brings previously separate workflows into a coherent domain model. Event-driven integrations decouple third-party systems, while targeted caching keeps response times stable during traffic peaks.

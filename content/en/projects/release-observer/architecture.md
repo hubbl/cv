@@ -1,0 +1,1 @@
+A lightweight Symfony service receives deployment events and connects them with aggregated OpenTelemetry metrics. The interface reads only precomputed time windows, keeping it responsive even with large telemetry volumes.

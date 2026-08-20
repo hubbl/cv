@@ -1,0 +1,13 @@
+services:
+  app:
+    build:
+      context: .
+    environment:
+      APP_ENV: dev
+      APP_DEBUG: 1
+      APP_SECRET: local-docker-secret
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./content:/app/content:ro
+    init: true

@@ -1,0 +1,1 @@
+Many portfolio sites mix content, layout, and styling. This project demonstrates a deliberately small architecture in which every layer has one clear job—without requiring a database or editorial interface.

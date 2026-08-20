@@ -1,0 +1,6 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ 'experience.title'|trans }} — Alex Morgan{% endblock %}
+{% block body %}
+  <header class="page-header"><div class="container-shell"><p class="eyebrow">{{ 'experience.eyebrow'|trans }}</p><h1 class="page-title">{{ 'experience.title'|trans }}</h1><p class="page-intro">{{ 'experience.intro'|trans }}</p></div></header>
+  <section class="container-shell section-space"><div class="relative grid gap-5 before:absolute before:bottom-0 before:left-4 before:top-0 before:w-px before:bg-white/10 sm:before:left-[10.25rem]">{% for experience in experiences %}<div class="relative pl-8 sm:pl-0"><span class="absolute left-[0.72rem] top-8 size-2 rounded-full bg-cyan-300 ring-4 ring-slate-950 sm:left-[9.98rem]"></span><twig:ExperienceCard :experience="experience" /></div>{% endfor %}</div></section>
+{% endblock %}

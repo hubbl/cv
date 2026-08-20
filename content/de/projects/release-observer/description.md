@@ -1,0 +1,1 @@
+Release Observer macht die Auswirkung eines Deployments in einer gemeinsamen Timeline sichtbar. Teams erkennen schneller, ob eine Veränderung mit neuen Fehlern, höherer Latenz oder auffälligen Produktmetriken zusammenhängt.

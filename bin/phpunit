@@ -1,0 +1,8 @@
+#!/usr/bin/env php
+<?php
+
+if (!file_exists(dirname(__DIR__).'/vendor/phpunit/phpunit/phpunit')) {
+    throw new LogicException('PHPUnit is not installed. Run "composer install".');
+}
+
+require dirname(__DIR__).'/vendor/phpunit/phpunit/phpunit';

@@ -1,0 +1,20 @@
+title: Release Observer
+summary: Ein kleines Observability-Werkzeug, das Deployments mit technischen und fachlichen Qualitätsmetriken verbindet.
+period:
+  from: 2025-02
+  to: 2025-11
+description: description.md
+motivation: motivation.md
+architecture: architecture.md
+highlights:
+  - Korrelation von Deployments, Fehlerquoten und Service-Level-Indikatoren
+  - Lesbare Release-Timeline für Entwicklungs- und Produktteams
+  - Herstellerneutrale OpenTelemetry-Integration
+technologies:
+  - Symfony
+  - OpenTelemetry
+  - PostgreSQL
+  - TypeScript
+links:
+  - label: GitHub Repository
+    url: https://github.com/example/release-observer

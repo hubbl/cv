@@ -1,0 +1,46 @@
+site:
+  title: 'Alex Morgan — Software Engineer'
+  meta_description: 'Portfolio und Lebenslauf eines Software Engineers mit Fokus auf robuste Web-Plattformen.'
+navigation:
+  primary: Hauptnavigation
+  skip: Zum Inhalt springen
+  experience: Erfahrung
+  projects: Projekte
+language:
+  switch: Sprache wechseln
+footer:
+  built_with: 'Gebaut mit Symfony, Twig & Tailwind CSS.'
+period:
+  present: heute
+home:
+  profile: Profil
+  about_title: 'Technik mit klarem Zweck.'
+  experience_title: 'Ausgewählte Stationen'
+  projects_title: 'Ausgewählte Projekte'
+experience:
+  eyebrow: Beruflicher Weg
+  title: Berufserfahrung
+  intro: 'Stationen, Verantwortung und ausgewählte technische Beiträge im Überblick.'
+projects:
+  eyebrow: Ausgewählte Arbeit
+  title: Projekte
+  intro: 'Produkte und Experimente, bei denen Architektur, Nutzerwert und Wartbarkeit zusammenkommen.'
+project:
+  label: Projekt
+sections:
+  overview: Überblick
+  responsibilities: Verantwortlichkeiten
+  selected_work: Ausgewählte Arbeit
+  highlights: Highlights
+  technology: Technologien
+  stack: Technischer Stack
+  motivation: Motivation
+  architecture: Architektur
+actions:
+  view_all: Alle ansehen
+  back_experience: Zur Berufserfahrung
+  back_projects: Zu den Projekten
+  home: Zur Startseite
+error:
+  not_found: Seite nicht gefunden
+  not_found_text: 'Der angeforderte Inhalt ist nicht vorhanden oder noch nicht übersetzt.'

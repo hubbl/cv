@@ -1,0 +1,1 @@
+Responsible for the technical evolution of a B2B platform that lets partners configure and manage complex services. Alongside backend architecture, the work focused on **reliable delivery** and a stronger developer experience.

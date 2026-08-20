@@ -1,0 +1,25 @@
+name: Alex Morgan
+title: Software Engineer for resilient web platforms
+tagline: I build durable backend systems and digital products that connect technical clarity with genuine user value.
+location: Berlin, Germany
+introduction: introduction.md
+technologies:
+  - PHP
+  - Symfony
+  - TypeScript
+  - PostgreSQL
+  - Docker
+  - Kubernetes
+  - Redis
+  - OpenTelemetry
+links:
+  - label: GitHub
+    url: https://github.com/example
+  - label: LinkedIn
+    url: https://www.linkedin.com/in/example
+featured_experiences:
+  - northstar-digital
+  - harbor-systems
+featured_projects:
+  - cv-website
+  - release-observer

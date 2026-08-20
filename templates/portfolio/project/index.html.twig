@@ -1,0 +1,6 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ 'projects.title'|trans }} — Alex Morgan{% endblock %}
+{% block body %}
+  <header class="page-header"><div class="container-shell"><p class="eyebrow">{{ 'projects.eyebrow'|trans }}</p><h1 class="page-title">{{ 'projects.title'|trans }}</h1><p class="page-intro">{{ 'projects.intro'|trans }}</p></div></header>
+  <section class="container-shell section-space"><div class="grid gap-5 md:grid-cols-2">{% for project in projects %}<twig:ProjectCard :project="project" />{% endfor %}</div></section>
+{% endblock %}

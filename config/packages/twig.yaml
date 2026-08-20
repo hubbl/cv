@@ -1,0 +1,10 @@
+twig:
+  file_name_pattern: '*.twig'
+  globals:
+    supported_locales: '%app.supported_locales%'
+    app_public_url: '%app.public_url%'
+  form_themes: []
+
+when@test:
+  twig:
+    strict_variables: true

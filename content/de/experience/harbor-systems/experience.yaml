@@ -1,0 +1,28 @@
+company: Harbor Systems AG
+role: Software Engineer
+period:
+  from: 2019-03
+  to: 2022-07
+location: Hamburg, Deutschland
+summary: summary.md
+responsibilities:
+  - Entwicklung von APIs und Hintergrundprozessen für eine Logistikplattform
+  - Ablösung gewachsener Legacy-Module durch klar abgegrenzte Symfony-Komponenten
+  - Aufbau automatisierter Integrations- und Contract-Tests
+highlights:
+  - Fehlerquote im Auftragsimport durch idempotente Verarbeitung deutlich gesenkt
+  - Schrittweise Migration ohne Betriebsunterbrechung umgesetzt
+technologies:
+  - PHP
+  - Symfony
+  - MySQL
+  - RabbitMQ
+  - Docker
+links: []
+projects:
+  - title: Auftragsimport 2.0
+    description: projects/order-import.md
+    technologies:
+      - Symfony Messenger
+      - RabbitMQ
+      - MySQL

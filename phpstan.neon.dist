@@ -1,0 +1,9 @@
+parameters:
+  level: 8
+  paths:
+    - src
+    - tests
+  tmpDir: var/phpstan
+
+includes:
+  - vendor/phpstan/phpstan-symfony/extension.neon
