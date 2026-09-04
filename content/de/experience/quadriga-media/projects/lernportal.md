@@ -1,0 +1,1 @@
+Entwicklung einer Kurs- und Studentenverwaltung mit CRM-Anbindung einschließlich Gestaltung, Konzeption und Wartung. Modulare Kurse kombinieren Videos, Markdown-Dokumente und Podcasts; Quizzes und webbasierte Trainings ermöglichen Wissensprüfungen per Multiple Choice und SCORM.

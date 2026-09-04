@@ -1,1 +1,0 @@
-Entwicklung und Modernisierung einer Plattform für die Planung internationaler Lieferketten. Ein zentraler Teil der Arbeit war die schrittweise Entkopplung historisch gewachsener Prozesse bei laufendem Betrieb.

@@ -1,1 +1,0 @@
-Verantwortlich für die technische Weiterentwicklung einer B2B-Plattform, über die Partner komplexe Services konfigurieren und verwalten. Neben der Backend-Architektur lag der Fokus auf **verlässlicher Auslieferung** und einer besseren Developer Experience.

@@ -1,6 +1,6 @@
 site:
-  title: 'Alex Morgan — Software Engineer'
-  meta_description: 'The portfolio and résumé of a software engineer focused on resilient web platforms.'
+  title: 'Dennis Otto — Senior Backend Developer'
+  meta_description: 'Dennis Otto’s résumé, focused on web and application development, systems integration, and data engineering.'
 navigation:
   primary: Primary navigation
   skip: Skip to content
@@ -8,14 +8,19 @@ navigation:
   projects: Projects
 language:
   switch: Switch language
+theme:
+  label: Color scheme
+  system: System setting
+  light: Light mode
+  dark: Dark mode
 footer:
   built_with: 'Built with Symfony, Twig & Tailwind CSS.'
 period:
   present: present
 home:
   profile: Profile
-  about_title: 'Technology with a clear purpose.'
-  experience_title: 'Selected experience'
+  about_title: 'Backend, integration, and data.'
+  experience_title: 'Professional experience'
   projects_title: 'Selected projects'
 experience:
   eyebrow: Professional journey

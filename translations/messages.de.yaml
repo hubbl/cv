@@ -1,6 +1,6 @@
 site:
-  title: 'Alex Morgan — Software Engineer'
-  meta_description: 'Portfolio und Lebenslauf eines Software Engineers mit Fokus auf robuste Web-Plattformen.'
+  title: 'Dennis Otto — Senior Backend-Entwickler'
+  meta_description: 'Lebenslauf von Dennis Otto mit Fokus auf Web- und Anwendungsentwicklung, Systemintegration und Data Engineering.'
 navigation:
   primary: Hauptnavigation
   skip: Zum Inhalt springen
@@ -8,14 +8,19 @@ navigation:
   projects: Projekte
 language:
   switch: Sprache wechseln
+theme:
+  label: Farbschema
+  system: Systemeinstellung
+  light: Heller Modus
+  dark: Dunkler Modus
 footer:
   built_with: 'Gebaut mit Symfony, Twig & Tailwind CSS.'
 period:
   present: heute
 home:
   profile: Profil
-  about_title: 'Technik mit klarem Zweck.'
-  experience_title: 'Ausgewählte Stationen'
+  about_title: 'Backend, Integration und Daten.'
+  experience_title: 'Berufliche Stationen'
   projects_title: 'Ausgewählte Projekte'
 experience:
   eyebrow: Beruflicher Weg

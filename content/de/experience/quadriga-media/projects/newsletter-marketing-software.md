@@ -1,0 +1,1 @@
+Entwicklung eines Queue-basierten E-Mail-Versandsystems in enger Zusammenarbeit mit dem Marketing. Die Lösung umfasst Spam- und Zustellbarkeitsprüfung, Listen- und Template-Management sowie einen dynamischen Excel-Import.

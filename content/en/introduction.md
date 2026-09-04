@@ -1,3 +1,3 @@
-I work where **software architecture, product development, and operations** meet. My focus is on understandable systems that teams can evolve with confidence.
+I work at the intersection of **web and application development, systems integration, and data engineering**.
 
-To me, good software is not the most complicated solution. It is the one whose decisions remain easy to follow—from the domain model to deployment.
+I have developed and modernized web applications since 2008. My work focuses on PHP backends, asynchronous systems integration, and data platforms. Alongside implementation, I take technical responsibility for architecture, concepts, and reviews.

@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="{{ page_description|trim }}">
-  <meta name="theme-color" content="#0b1220">
+  <meta name="theme-color" content="#f3f0e8">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="{{ app.request.locale == 'de' ? 'de_DE' : 'en_US' }}">
   <meta property="og:title" content="{{ page_title|trim }}">
@@ -16,34 +16,56 @@
   <meta name="twitter:description" content="{{ page_description|trim }}">
   {% block social_image %}
     <meta property="og:image" content="{{ app_public_url|trim('/') }}/og.png">
-    <meta property="og:image:alt" content="Alex Morgan — Software Engineer">
+    <meta property="og:image:alt" content="Dennis Otto — Senior Backend-Entwickler">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="{{ app_public_url|trim('/') }}/og.png">
   {% endblock %}
   <title>{{ page_title|trim }}</title>
+  <script>
+    (() => {
+      try {
+        const theme = localStorage.getItem('theme');
+        if (theme === 'light' || theme === 'dark') {
+          document.documentElement.dataset.theme = theme;
+          document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#202421' : '#f3f0e8';
+        }
+      } catch {}
+    })();
+  </script>
   <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
+  <script src="{{ asset('theme.js') }}" defer></script>
 </head>
-<body class="min-h-screen bg-slate-950 text-slate-200 antialiased selection:bg-cyan-300 selection:text-slate-950">
+<body class="min-h-screen antialiased">
   <a href="#main-content" class="skip-link">{{ 'navigation.skip'|trans }}</a>
-  <header class="sticky top-0 z-50 border-b border-white/10 bg-slate-950/85 backdrop-blur-xl">
+  <header class="site-header">
     <nav class="container-shell flex h-16 items-center justify-between" aria-label="{{ 'navigation.primary'|trans }}">
-      <a href="{{ path('app_home', {_locale: app.request.locale}) }}" class="group flex items-center gap-3 font-semibold tracking-tight text-white">
-        <span class="grid size-8 place-items-center rounded-lg border border-cyan-300/30 bg-cyan-300/10 font-mono text-xs text-cyan-300 transition group-hover:bg-cyan-300/20">&lt;/&gt;</span>
-        <span>Alex Morgan</span>
+      <a href="{{ path('app_home', {_locale: app.request.locale}) }}" class="brand">
+        <span class="brand-mark">DO</span>
+        <span class="hidden sm:inline">Dennis Otto</span>
       </a>
       <div class="flex items-center gap-1 sm:gap-3">
         <a class="nav-link {{ app.request.attributes.get('_route') starts with 'app_experience' ? 'nav-link-active' }}" href="{{ path('app_experience_index', {_locale: app.request.locale}) }}">{{ 'navigation.experience'|trans }}</a>
-        <a class="nav-link {{ app.request.attributes.get('_route') starts with 'app_project' ? 'nav-link-active' }}" href="{{ path('app_project_index', {_locale: app.request.locale}) }}">{{ 'navigation.projects'|trans }}</a>
         <twig:LanguageSwitch />
+        <div class="theme-switch" role="group" aria-label="{{ 'theme.label'|trans }}">
+          <button class="theme-switch-button" type="button" data-theme-value="system" aria-pressed="true" title="{{ 'theme.system'|trans }}">
+            <span class="sr-only">{{ 'theme.system'|trans }}</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </button>
+          <button class="theme-switch-button" type="button" data-theme-value="light" aria-pressed="false" title="{{ 'theme.light'|trans }}">
+            <span class="sr-only">{{ 'theme.light'|trans }}</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"/></svg>
+          </button>
+          <button class="theme-switch-button" type="button" data-theme-value="dark" aria-pressed="false" title="{{ 'theme.dark'|trans }}">
+            <span class="sr-only">{{ 'theme.dark'|trans }}</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 15.2A9 9 0 1 1 8.8 3a7 7 0 0 0 12.2 12.2Z"/></svg>
+          </button>
+        </div>
       </div>
     </nav>
   </header>
 
   <main id="main-content">{% block body %}{% endblock %}</main>
 
-  <footer class="border-t border-white/10 py-10">
-    <div class="container-shell flex flex-col gap-2 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
-      <p>© {{ 'now'|date('Y') }} Alex Morgan</p>
+  <footer class="site-footer">
+    <div class="container-shell site-footer-inner">
+      <p>© {{ 'now'|date('Y') }} Dennis Otto</p>
       <p>{{ 'footer.built_with'|trans }}</p>
     </div>
   </footer>

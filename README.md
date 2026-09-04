@@ -52,33 +52,33 @@ Each language owns a complete tree with stable, shared slugs:
 content/
 ├── de/
 │   ├── profile.yaml
-│   ├── experience/northstar-digital/...
-│   └── projects/cv-website/...
+│   ├── experience/smartbroker/...
+│   └── experience/quadriga-media/...
 └── en/
     ├── profile.yaml
-    ├── experience/northstar-digital/...
-    └── projects/cv-website/...
+    ├── experience/smartbroker/...
+    └── experience/quadriga-media/...
 ```
 
 Example experience metadata:
 
 ```yaml
-company: Northstar Digital GmbH
-role: Senior Software Engineer
+company: Smartbroker AG
+role: Senior Backend-Entwickler
 period:
-  from: 2022-08
+  from: 2020-09
   to: null
 summary: summary.md
 responsibilities:
-  - Technical leadership for a business-critical platform
+  - Architektur und Konzeption
 technologies:
   - PHP
   - Symfony
-  - PostgreSQL
+  - RabbitMQ
 projects:
-  - title: Partner platform
-    description: projects/partner-platform.md
-    technologies: [Symfony, PostgreSQL]
+  - title: Depot-Registrierung
+    description: projects/depot-registrierung.md
+    technologies: [Symfony, RabbitMQ]
 ```
 
 YAML describes meaning; Markdown is reserved for prose. Raw HTML in Markdown is stripped and rendered output is passed through Symfony's HTML Sanitizer. To add a language, mirror an existing content tree and add the locale to `app.supported_locales`, the route requirement, and Symfony's enabled locales.
@@ -173,4 +173,4 @@ Optional `DEPLOY_IDENTITY_FILE` selects a dedicated SSH key. Do not commit secre
 - **Simple caching:** development favors instant feedback; production caches fully parsed, validated content objects.
 - **Minimal JavaScript:** none is required for the initial experience. Navigation and language switching work with ordinary links.
 
-The included Alex Morgan content is realistic but intentionally generic. Replace names, links, YAML metadata, and Markdown copy in both locale trees before publishing.
+The included content mirrors Dennis Otto's résumé in German and English. Keep both locale trees aligned when updating professional experience.

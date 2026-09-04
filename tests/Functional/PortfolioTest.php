@@ -13,14 +13,14 @@ final class PortfolioTest extends WebTestCase
         $client = static::createClient();
         $client->request('GET', '/de/');
         self::assertResponseIsSuccessful();
-        self::assertSelectorTextContains('h1', 'Software Engineer');
+        self::assertSelectorTextContains('h1', 'Web-/Anwendungsentwicklung');
         self::assertSelectorExists('a[hreflang="en"][href="/en/"]');
-        self::assertSelectorExists('meta[property="og:title"][content*="Software Engineer"]');
+        self::assertSelectorExists('meta[property="og:title"][content*="Dennis Otto"]');
         self::assertSelectorExists('meta[property="og:image"][content="http://localhost:8080/og.png"]');
 
         $client->request('GET', '/en/');
         self::assertResponseIsSuccessful();
-        self::assertSelectorTextContains('h2', 'Technology with a clear purpose');
+        self::assertSelectorTextContains('h2', 'Backend, integration, and data');
     }
 
     public function testExperiencePagesAndEquivalentLanguageSwitch(): void
@@ -31,10 +31,11 @@ final class PortfolioTest extends WebTestCase
             self::assertResponseIsSuccessful();
         }
 
-        $client->request('GET', '/de/experience/northstar-digital');
+        $client->request('GET', '/de/experience/smartbroker');
         self::assertResponseIsSuccessful();
-        self::assertSelectorTextContains('h1', 'Senior Software Engineer');
-        self::assertSelectorExists('a[hreflang="en"][href="/en/experience/northstar-digital"]');
+        self::assertSelectorTextContains('h1', 'Senior Backend-Entwickler');
+        self::assertSelectorTextContains('body', 'Depot-Registrierung');
+        self::assertSelectorExists('a[hreflang="en"][href="/en/experience/smartbroker"]');
     }
 
     public function testUnknownSlugMissingTranslationAndLocaleReturnNotFound(): void
@@ -46,15 +47,13 @@ final class PortfolioTest extends WebTestCase
         }
     }
 
-    public function testProjectPages(): void
+    public function testNoStandaloneProjectsRemain(): void
     {
         $client = static::createClient();
         $client->request('GET', '/de/projects');
         self::assertResponseIsSuccessful();
-        $client->clickLink('Content-first CV');
-        self::assertResponseIsSuccessful();
-        self::assertSelectorTextContains('body', 'Architektur');
-        self::assertSelectorExists('meta[property="og:title"][content*="Content-first CV"]');
-        self::assertSelectorNotExists('meta[property="og:image"]');
+        self::assertSelectorNotExists('article');
+        $client->request('GET', '/de/projects/nonexistent-project');
+        self::assertResponseStatusCodeSame(404);
     }
 }

@@ -1,0 +1,46 @@
+company: Smartbroker AG
+role: Senior Backend Developer
+period:
+  from: 2020-09
+  to: null
+location: null
+summary: summary.md
+responsibilities:
+  - Shared technical responsibility
+  - Architecture and solution design
+  - Code reviews
+highlights:
+  - Optimized BigQuery on-demand usage and reduced costs by 40 percent
+technologies:
+  - PHP
+  - Symfony
+  - RabbitMQ
+  - Python
+  - Airflow
+  - dbt
+  - BigQuery
+  - Looker Studio
+links: []
+projects:
+  - title: Securities Account Registration
+    description: projects/depot-registration.md
+    technologies:
+      - PHP
+      - Symfony
+      - RabbitMQ
+      - Symfony Messenger
+      - FOSRest
+  - title: Data Integration & Middleware
+    description: projects/data-integration-middleware.md
+    technologies:
+      - PHP
+      - Symfony
+      - RabbitMQ
+  - title: Data Warehouse
+    description: projects/data-warehouse.md
+    technologies:
+      - Python
+      - Airflow
+      - dbt
+      - BigQuery
+      - Looker Studio

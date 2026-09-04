@@ -1,0 +1,50 @@
+company: Quadriga Media Berlin GmbH
+role: (Senior) Web-Entwickler
+period:
+  from: 2008-08
+  to: 2020-08
+location: Berlin, Deutschland
+summary: summary.md
+responsibilities:
+  - Konzeption und Umsetzung von Integrations- und Prozesslösungen
+  - Technischer Ansprechpartner und informeller Mentor
+  - Weiterentwicklung und schrittweise Modernisierung gewachsener PHP-Systeme
+highlights: []
+technologies:
+  - PHP
+  - Laravel
+  - CodeIgniter
+  - JavaScript
+  - SCSS
+  - AWS SQS
+  - Pretix
+  - Magento
+links: []
+projects:
+  - title: Stellenanzeigen-Portal
+    description: projects/stellenanzeigen-portal.md
+    technologies:
+      - PHP
+      - Laravel
+      - JavaScript
+      - SCSS
+  - title: Newsletter- & Marketing-Software
+    description: projects/newsletter-marketing-software.md
+    technologies:
+      - PHP
+      - Laravel
+      - AWS SQS
+  - title: Lernportal
+    description: projects/lernportal.md
+    technologies:
+      - PHP
+      - CodeIgniter
+      - JavaScript
+      - SCSS
+  - title: Award-Bewerbungsportale
+    description: projects/award-bewerbungsportale.md
+    technologies:
+      - PHP
+      - CodeIgniter
+      - JavaScript
+      - SCSS

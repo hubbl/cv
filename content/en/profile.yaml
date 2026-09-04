@@ -1,25 +1,25 @@
-name: Alex Morgan
-title: Software Engineer for resilient web platforms
-tagline: I build durable backend systems and digital products that connect technical clarity with genuine user value.
-location: Berlin, Germany
+name: Dennis Otto
+title: Web/Application Development · Systems Integration · Data Engineering
+tagline: Senior backend developer experienced in architecture, integration, and data-driven systems.
+location: Mahlow, Germany
 introduction: introduction.md
 technologies:
   - PHP
   - Symfony
-  - TypeScript
+  - Laravel
+  - Python
+  - JavaScript
+  - SCSS
+  - MySQL / MariaDB
   - PostgreSQL
+  - BigQuery
+  - dbt
+  - Airflow
+  - RabbitMQ
   - Docker
-  - Kubernetes
-  - Redis
-  - OpenTelemetry
-links:
-  - label: GitHub
-    url: https://github.com/example
-  - label: LinkedIn
-    url: https://www.linkedin.com/in/example
+  - AWS
+links: []
 featured_experiences:
-  - northstar-digital
-  - harbor-systems
-featured_projects:
-  - cv-website
-  - release-observer
+  - smartbroker
+  - quadriga-media
+featured_projects: []

@@ -1,1 +1,0 @@
-Viele Portfolio-Seiten vermischen Inhalte, Layout und Styling. Dieses Projekt zeigt eine bewusst kleine Architektur, in der jede Schicht eine klare Aufgabe hat und trotzdem keine Datenbank oder Redaktionsoberfläche nötig ist.

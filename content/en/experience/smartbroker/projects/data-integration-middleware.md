@@ -1,0 +1,1 @@
+Development of middleware for asynchronously integrating CRM and marketing systems such as Bloomreach, CleverReach, Sage, and Bitrix24. A dedicated integration service for Bitrix24 processes potentially unordered events based on state.

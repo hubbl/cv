@@ -16,12 +16,12 @@ final class YamlContentLoaderTest extends KernelTestCase
         self::bootKernel();
         $repository = self::getContainer()->get(ContentRepository::class);
         self::assertInstanceOf(ContentRepository::class, $repository);
-        $experience = $repository->experience('de', 'northstar-digital');
+        $experience = $repository->experience('de', 'smartbroker');
 
-        self::assertSame('Northstar Digital GmbH', $experience->company);
-        self::assertSame('2022-08', $experience->period->from);
+        self::assertSame('Smartbroker AG', $experience->company);
+        self::assertSame('2020-09', $experience->period->from);
         self::assertNotEmpty($experience->projects);
-        self::assertStringContainsString('<strong>', $experience->summary->html ?? '');
+        self::assertStringContainsString('Architektur', $experience->summary->html ?? '');
     }
 
     public function testRequiredFieldsAreValidatedEarly(): void

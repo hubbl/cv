@@ -1,0 +1,1 @@
+Aufbau eines Data-Warehouse für Stamm-, Transaktions- und Bestandsdaten. Die Transformation mit dbt in BigQuery folgt einem mehrschichtigen Datenmodell aus Staging, Intermediate und Curated. Der BigQuery-On-Demand-Verbrauch wurde optimiert und die Kosten um 40 Prozent reduziert; die aufbereiteten Daten werden in Looker Studio genutzt.

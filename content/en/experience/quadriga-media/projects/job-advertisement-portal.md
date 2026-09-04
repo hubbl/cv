@@ -1,0 +1,1 @@
+Developed a central platform for managing job advertisements, including visual design, conception, and maintenance. An API serves multiple thin frontends; Pretix and Magento payment providers and quota management for media agencies are integrated.

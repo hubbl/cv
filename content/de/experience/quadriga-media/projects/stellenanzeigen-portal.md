@@ -1,0 +1,1 @@
+Entwicklung einer zentralen Plattform zur Verwaltung von Stellenanzeigen einschließlich Gestaltung, Konzeption und Wartung. Eine API versorgt mehrere Thin-Frontends; Payment-Provider wie Pretix und Magento sowie ein Kontingent-Management für Media-Agenturen sind integriert.

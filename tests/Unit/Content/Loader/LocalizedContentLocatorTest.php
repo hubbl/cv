@@ -14,7 +14,7 @@ final class LocalizedContentLocatorTest extends TestCase
     {
         $locator = new LocalizedContentLocator(\dirname(__DIR__, 4).'/content', ['de', 'en']);
         self::assertStringEndsWith('de'.\DIRECTORY_SEPARATOR.'profile.yaml', $locator->profile('de'));
-        self::assertTrue($locator->existsExperience('en', 'northstar-digital'));
+        self::assertTrue($locator->existsExperience('en', 'smartbroker'));
 
         $this->expectException(ContentException::class);
         $locator->relativeMarkdown($locator->profile('de'), '../secret.md');

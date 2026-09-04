@@ -1,1 +1,0 @@
-Die Plattform bündelt zuvor getrennte Abläufe in einem nachvollziehbaren Domain-Modell. Ereignisbasierte Integrationen entkoppeln Drittsysteme, während gezielte Caches stabile Antwortzeiten bei Lastspitzen sichern.

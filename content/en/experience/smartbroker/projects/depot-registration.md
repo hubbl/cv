@@ -1,0 +1,1 @@
+Further development of a microservice-based registration process with an API and asynchronous communication through RabbitMQ and Symfony Messenger. Retry mechanisms and idempotent processing provide robust workflows. The work also includes integrations with PostIdent and partner banks as well as PDF generation using Forms and pdftk.

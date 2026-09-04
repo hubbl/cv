@@ -1,0 +1,1 @@
+Built a data warehouse for master, transaction, and portfolio data. Transformations with dbt in BigQuery follow a layered model consisting of staging, intermediate, and curated data. BigQuery on-demand usage was optimized to reduce costs by 40 percent, and the prepared data is used in Looker Studio.

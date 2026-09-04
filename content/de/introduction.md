@@ -1,3 +1,9 @@
-Ich arbeite an der Schnittstelle von **Softwarearchitektur, Produktentwicklung und Betrieb**. Mein Schwerpunkt liegt auf verständlichen Systemen, die Teams sicher weiterentwickeln können.
+Ich werkele an der Schnittstelle von **Web- und Anwendungsentwicklung, Systemintegration und Data Engineering**.
 
-Gute Software ist für mich nicht die komplizierteste Lösung, sondern diejenige, deren Entscheidungen nachvollziehbar bleiben – vom Domain-Modell bis zum Deployment.
+Seit 2008 entwickle und modernisiere ich Web-Anwendungen. Meine Schwerpunkte liegen auf PHP-Backends, asynchroner Systemintegration und Datenplattformen. Neben der Umsetzung übernehme ich technische Verantwortung für Architektur, Konzeption und Reviews.
+
+
+Abbuchungs-IBAN:
+DE58 1203 0000 1067 1221 82
+Abbuchungs-BIC:
+BYLADEM1001 

@@ -1,1 +1,0 @@
-Ein schlanker Symfony-Dienst nimmt Deployment-Ereignisse entgegen und verknüpft sie mit aggregierten OpenTelemetry-Metriken. Die Oberfläche liest ausschließlich vorab berechnete Zeitfenster und bleibt dadurch auch bei großen Telemetriemengen schnell.
