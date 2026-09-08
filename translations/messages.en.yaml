@@ -1,5 +1,5 @@
 site:
-  title: 'Dennis Otto — Senior Backend Developer'
+  title: 'Dennis Otto - Senior Backend Developer'
   meta_description: 'Dennis Otto’s résumé, focused on web and application development, systems integration, and data engineering.'
 navigation:
   primary: Primary navigation
@@ -28,6 +28,14 @@ period:
   present: present
 home:
   profile: Profile
+  qualifications_eyebrow: Background
+  qualifications_title: Education and languages
+  education: Education
+  languages: Languages
+  certifications: Certifications
+  contact_eyebrow: Contact
+  contact_title: Let’s start a conversation
+  contact_intro: 'Would you like to discuss a technical topic or have a suitable opportunity in mind? I welcome a confidential message or phone call.'
   about_title: 'Backend, integration, and data.'
   experience_title: 'Professional experience'
   projects_title: 'Selected projects'
@@ -52,9 +60,12 @@ sections:
   architecture: Architecture
 actions:
   view_all: View all
+  click_for_more: Click for more
   back_experience: Back to experience
   back_projects: Back to projects
   home: Back to home
+  write_email: Write an email
+  view_resume: View résumé
 error:
   not_found: Page not found
   not_found_text: 'The requested content does not exist or has not been translated yet.'

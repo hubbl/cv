@@ -115,7 +115,10 @@
   .detail-title { @apply mb-6 font-serif text-2xl font-semibold tracking-tight; color: var(--text); }
   .nav-link { @apply rounded-lg px-2.5 py-2 text-sm transition sm:px-3; color: var(--text-muted); }
   .nav-link:hover, .nav-link-active { color: var(--text); }
-  .button-secondary { @apply items-center gap-2 rounded-xl border px-4 py-2.5 text-sm font-medium transition; color: var(--text); background: var(--surface); }
+  .button-primary, .button-secondary { @apply inline-flex items-center gap-2 rounded-xl border px-4 py-2.5 text-sm font-medium transition; }
+  .button-primary { color: var(--surface); background: var(--accent); border-color: var(--accent); }
+  .button-primary:hover { color: var(--surface); background: var(--accent-hover); border-color: var(--accent-hover); }
+  .button-secondary { color: var(--text); background: var(--surface); }
   .button-secondary:hover { color: var(--accent-hover); border-color: var(--accent); background: var(--accent-soft); }
   .text-link { @apply text-sm font-semibold transition; color: var(--accent); }
   .text-link:hover, .back-link:hover { color: var(--accent-hover); }
@@ -123,6 +126,9 @@
   .semantic-list { @apply space-y-4; color: var(--text-soft); }
   .semantic-list li { @apply relative pl-6 leading-7; }
   .semantic-list li::before { content: ""; @apply absolute left-0 top-[0.7rem] size-1.5 rounded-full; background: var(--accent); }
+  .condensed-list { @apply space-y-2; color: var(--text-soft); }
+  .condensed-list li { @apply relative pl-6 leading-6; }
+  .condensed-list li::before { content: ""; @apply absolute left-0 top-[0.7rem] size-1.5 rounded-full; background: var(--accent); }
   .prose-content { @apply space-y-5 leading-8; color: var(--text-soft); }
   .prose-content h1, .prose-content h2, .prose-content h3 { @apply font-serif font-semibold; color: var(--text); }
   .prose-content h1 { @apply mb-8 text-4xl tracking-[-0.025em] sm:text-6xl; text-wrap: balance; }
@@ -137,8 +143,12 @@
   .prose-compact { @apply leading-7; color: var(--text-soft); }
   .prose-compact p + p { @apply mt-3; }
   .skip-link { @apply fixed left-4 top-4 z-[100] -translate-y-24 rounded-lg px-4 py-2 font-semibold transition focus:translate-y-0; color: var(--selection-text); background: var(--accent); }
-  .hero-title { @apply max-w-5xl font-serif text-5xl font-semibold leading-[0.98] tracking-[-0.035em] sm:text-7xl lg:text-8xl; color: var(--text); text-wrap: balance; }
-  .hero-tagline { @apply mt-8 max-w-2xl text-lg leading-8 sm:text-xl; color: var(--text-soft); }
+  .hero-title { @apply max-w-5xl font-serif text-[2rem] font-semibold leading-[1.02] tracking-[-0.035em] sm:text-6xl lg:text-6xl; color: var(--text); text-wrap: balance; hyphens: auto; overflow-wrap: anywhere; }
+  .hero-tagline { color: var(--text-soft); }
+  .hero-layout { @apply grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-14; }
+  .hero-layout > * { min-width: 0; }
+  .hero-portrait-frame { @apply mx-auto w-full max-w-52 rounded-md overflow-hidden border lg:mx-0 lg:justify-self-end; background: var(--surface); box-shadow: 0 20px 45px rgb(20 35 27 / 16%); }
+  .hero-portrait { @apply block aspect-[3/4] h-auto w-full object-cover max-w-xl; }
   .hero-location { @apply mb-6 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em]; color: var(--accent); }
   .hero-location::before { content: ""; @apply h-px w-8; background: var(--accent); }
   .hero-grid { background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size: 52px 52px; mask-image: linear-gradient(to bottom, black, transparent 85%); }
@@ -157,6 +167,17 @@
   .language-switch { @apply ml-1 rounded-lg border px-2.5 py-1.5 text-xs font-semibold uppercase transition; color: var(--text-soft); }
   .language-switch:hover { color: var(--accent); border-color: var(--accent); }
   .aside-rule { @apply lg:border-l lg:pl-8; }
+  .profile-facts { @apply grid gap-10 sm:grid-cols-2 lg:grid-cols-3; }
+  .profile-fact-heading { @apply mb-5 text-xs font-semibold uppercase tracking-[0.18em]; color: var(--accent); }
+  .contact-section { @apply border-t; background: var(--surface); }
+  .contact-layout { @apply grid gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:gap-10; }
+  .contact-intro { @apply max-w-2xl text-lg leading-8; color: var(--text-soft); }
+}
+
+@media (max-width: 420px) {
+  .container-shell { @apply px-4; }
+  .nav-link { @apply px-1.5; }
+  .theme-switch { @apply ml-0; }
 }
 
 @media (min-width: 640px) {

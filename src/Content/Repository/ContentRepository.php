@@ -94,7 +94,7 @@ final readonly class ContentRepository
      */
     private function remember(string $key, callable $loader): mixed
     {
-        if ('prod' !== $this->environment) {
+        if ($this->environment !== 'prod') {
             return $loader();
         }
 

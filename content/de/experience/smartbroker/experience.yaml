@@ -6,11 +6,9 @@ period:
 location: null
 summary: summary.md
 responsibilities:
-  - Technische Mitverantwortung
-  - Architektur und Konzeption
-  - Code-Reviews
-highlights:
-  - BigQuery-On-Demand-Verbrauch optimiert und Kosten um 40 Prozent reduziert
+  - Konzeption und Weiterentwicklung von APIs und Integrationen für kundenbezogene Prozesse, CRM- und Marketingsysteme
+  - Absicherung zentraler Abläufe durch automatisierte Tests auf mehreren Ebenen
+  - Qualitätssicherung und Wissenstransfer durch Code-Reviews und Pair Programming
 technologies:
   - PHP
   - Symfony
@@ -20,24 +18,42 @@ technologies:
   - dbt
   - BigQuery
   - Looker Studio
+  - Codeception
+  - Cypress
 links: []
 projects:
   - title: Depot-Registrierung
-    description: projects/depot-registrierung.md
+    description:
+      - Weiterentwicklung eines auf Microservices basierenden Registrierungsprozesses samt REST-API für das Frontend
+      - Zuverlässige asynchrone Verarbeitung über RabbitMQ und Symfony Messenger
+      - Absicherung verteilter Abläufe durch Retry-Mechanismen und idempotente Verarbeitung
+      - Integration von PostIdent und Partnerbanken
+      - Automatisierte PDF-Generierung mit PDF-Formularen und pdftk
     technologies:
       - PHP
       - Symfony
-      - RabbitMQ
-      - Symfony Messenger
+      - RabbitMQ / Symfony Messenger
       - FOSRest
+      - PHPUnit
+      - Codeception
+
   - title: Datenintegration & Middleware
-    description: projects/datenintegration-middleware.md
+    description:
+      - Entkopplung von CRM- und Marketingsystemen durch eine asynchrone Middleware für Bloomreach, CleverReach, Sage und Bitrix24
+      - Zuverlässige Verarbeitung potenziell ungeordneter Events durch einen zustandsbasierten Bitrix24-Integrationsservice
     technologies:
       - PHP
       - Symfony
-      - RabbitMQ
+      - RabbitMQ / Symfony Messenger
+      - PHPUnit
+
   - title: Data-Warehouse
-    description: projects/data-warehouse.md
+    description:
+      - Aufbau eines Data Warehouse als gemeinsame Analysebasis für Stamm-, Transaktions- und Bestandsdaten
+      - Datentransformation mit dbt in BigQuery
+      - Mehrschichtiges Datenmodell mit Staging-, Intermediate- und Curated-Layern
+      - Senkung der BigQuery-On-Demand-Kosten um 40 Prozent durch gezielte Verbrauchsoptimierung
+      - Bereitstellung aufbereiteter Daten für Looker Studio
     technologies:
       - Python
       - Airflow

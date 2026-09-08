@@ -6,10 +6,10 @@ period:
 location: Berlin, Germany
 summary: summary.md
 responsibilities:
-  - Designed and implemented integration and process solutions
-  - Served as technical contact and informal mentor
-  - Evolved and incrementally modernized long-established PHP systems
-highlights: []
+  - Design and architecture of user-centric applications in close collaboration with business teams
+  - Implementation of integration and process solutions across system boundaries
+  - Technical point of contact and informal mentor within the development team
+  - Incremental modernization of established PHP systems during ongoing operations
 technologies:
   - PHP
   - Laravel
@@ -22,27 +22,43 @@ technologies:
 links: []
 projects:
   - title: Job Advertisement Portal
-    description: projects/job-advertisement-portal.md
+    description:
+      - Consolidation of job advertisement management in a central platform
+      - A shared API serving multiple thin frontends
+      - Integrated payment processing through Pretix and Magento
+      - Quota management for media agencies
+      - Responsibility from concept and visual design through maintenance and continued development
     technologies:
       - PHP
       - Laravel
       - JavaScript
       - SCSS
   - title: Newsletter & Marketing Software
-    description: projects/newsletter-marketing-software.md
+    description:
+      - Development of a decoupled, queue-based email delivery system
+      - Improved delivery quality through integrated spam and deliverability checks
+      - Flexible campaign preparation through list and template management with dynamic Excel imports
+      - Concept development in close collaboration with marketing
     technologies:
       - PHP
       - Laravel
       - AWS SQS
   - title: Learning Portal
-    description: projects/learning-portal.md
+    description:
+      - Development of course and participant administration with CRM integration
+      - Flexible learning content through modular courses with videos, Markdown documents, and podcasts
+      - Knowledge assessment through quizzes and web-based training with multiple-choice and SCORM content
+      - Responsibility from concept and visual design through maintenance and continued development
     technologies:
       - PHP
       - CodeIgniter
       - JavaScript
       - SCSS
   - title: Award Application Portals
-    description: projects/award-application-portals.md
+    description:
+      - Reusable multi-tenant system supporting four to six awards per year plus historical data
+      - Separate workflows and interfaces for applicants and juries
+      - Integrated payment processing through Pretix or Magento
     technologies:
       - PHP
       - CodeIgniter

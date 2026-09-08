@@ -6,11 +6,9 @@ period:
 location: null
 summary: summary.md
 responsibilities:
-  - Shared technical responsibility
-  - Architecture and solution design
-  - Code reviews
-highlights:
-  - Optimized BigQuery on-demand usage and reduced costs by 40 percent
+  - Design and continued development of APIs and integrations for customer-facing processes, CRM, and marketing systems
+  - Safeguarding critical workflows through automated tests across multiple layers
+  - Quality assurance and knowledge sharing through code reviews and pair programming
 technologies:
   - PHP
   - Symfony
@@ -20,24 +18,40 @@ technologies:
   - dbt
   - BigQuery
   - Looker Studio
+  - Codeception
+  - Cypress
 links: []
 projects:
   - title: Securities Account Registration
-    description: projects/depot-registration.md
+    description:
+      - Continued development of a microservice-based registration process and its REST API for the frontend
+      - Reliable asynchronous processing via RabbitMQ and Symfony Messenger
+      - Safeguarding distributed workflows with retry mechanisms and idempotent processing
+      - Integration of PostIdent and partner banks
+      - Automated PDF generation using PDF forms and pdftk
     technologies:
       - PHP
       - Symfony
-      - RabbitMQ
-      - Symfony Messenger
+      - RabbitMQ / Symfony Messenger
       - FOSRest
+      - PHPUnit
+      - Codeception
   - title: Data Integration & Middleware
-    description: projects/data-integration-middleware.md
+    description:
+      - Decoupling CRM and marketing systems through asynchronous middleware for Bloomreach, CleverReach, Sage, and Bitrix24
+      - Reliable processing of potentially unordered events through a state-based Bitrix24 integration service
     technologies:
       - PHP
       - Symfony
-      - RabbitMQ
+      - RabbitMQ / Symfony Messenger
+      - PHPUnit
   - title: Data Warehouse
-    description: projects/data-warehouse.md
+    description:
+      - Creation of a shared analytics foundation for master, transaction, and portfolio data
+      - Data transformation with dbt in BigQuery
+      - Multi-layered data model comprising staging, intermediate, and curated layers
+      - Reduction of BigQuery on-demand costs by 40 percent through targeted usage optimization
+      - Provision of prepared data for Looker Studio
     technologies:
       - Python
       - Airflow

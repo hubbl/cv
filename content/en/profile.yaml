@@ -1,7 +1,11 @@
 name: Dennis Otto
-title: Web/Application Development · Systems Integration · Data Engineering
-tagline: Senior backend developer experienced in architecture, integration, and data-driven systems.
+title: Application Development <br>Systems Integration <br>Data Engineering
+tagline: Design, development, and modernization of user-centric and data-driven applications.
 location: Mahlow, Germany
+email: webmaster@dennis-otto.net
+phone: +49 176 622 47 871
+resume: files/Lebenslauf_Dennis_Otto_Aug2026.pdf
+introduction_title: Full Stack, APIs, Data Transformation
 introduction: introduction.md
 technologies:
   - PHP
@@ -19,6 +23,23 @@ technologies:
   - Docker
   - AWS
 links: []
+# LinkedIn and GitHub appear in the contact section once valid URLs are added:
+#  - label: LinkedIn
+#    url: https://www.linkedin.com/in/...
+#  - label: GitHub
+#    url: https://github.com/...
+education:
+  - title: Vocational training as an IT assistant
+    detail: Oberstufenzentrum für Informations- und Medizintechnik
+    meta: Berlin · 2005–2008
+languages:
+  - title: German
+    detail: Native
+    meta: null
+  - title: English
+    detail: B2/C1
+    meta: null
+certifications: []
 featured_experiences:
   - smartbroker
   - quadriga-media

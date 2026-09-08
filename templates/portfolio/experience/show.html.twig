@@ -1,15 +1,70 @@
 {% extends 'base.html.twig' %}
 {% block title %}{{ experience.role }} — {{ experience.company }}{% endblock %}
-{% block social_image %}<meta name="twitter:card" content="summary">{% endblock %}
+{% block social_image %}
+  <meta name="twitter:card" content="summary">
+{% endblock %}
 {% block body %}
-  <header class="page-header"><div class="container-shell"><a class="back-link" href="{{ path('app_experience_index', {_locale: app.request.locale}) }}">← {{ 'actions.back_experience'|trans }}</a><p class="eyebrow mt-10">{{ experience.company }}</p><h1 class="page-title max-w-4xl">{{ experience.role }}</h1><div class="mt-6 flex flex-wrap items-center gap-4"><twig:Period :period="experience.period" />{% if experience.location %}<span class="muted-text text-sm">{{ experience.location }}</span>{% endif %}</div></div></header>
+  <header class="page-header">
+    <div class="container-shell"><a class="back-link"
+                                    href="{{ path('app_experience_index', {_locale: app.request.locale}) }}">← {{ 'actions.back_experience'|trans }}</a>
+      <p class="eyebrow mt-10">{{ experience.company }}</p>
+      <h1 class="page-title max-w-4xl">{{ experience.role }}</h1>
+      <div class="mt-6 flex flex-wrap items-center gap-4">
+        <twig:Period :period="experience.period"/>{% if experience.location %}<span
+          class="muted-text text-sm">{{ experience.location }}</span>{% endif %}</div>
+    </div>
+  </header>
   <div class="container-shell section-space grid gap-14 lg:grid-cols-[minmax(0,1fr)_18rem]">
     <div class="space-y-14">
-      {% if experience.summary %}<section><h2 class="detail-title">{{ 'sections.overview'|trans }}</h2><div class="prose-content">{{ experience.summary.html|raw }}</div></section>{% endif %}
-      {% if experience.responsibilities %}<section><h2 class="detail-title">{{ 'sections.responsibilities'|trans }}</h2><ul class="semantic-list">{% for item in experience.responsibilities %}<li>{{ item }}</li>{% endfor %}</ul></section>{% endif %}
-      {% if experience.projects %}<section><h2 class="detail-title">{{ 'sections.selected_work'|trans }}</h2><div class="grid gap-4">{% for project in experience.projects %}<article class="card rounded-xl p-6"><h3 class="card-title text-lg">{{ project.title }}</h3>{% if project.description %}<div class="prose-compact mt-3">{{ project.description.html|raw }}</div>{% endif %}<div class="mt-4 flex flex-wrap gap-2">{% for technology in project.technologies %}<twig:TechnologyBadge :technology="technology" />{% endfor %}</div></article>{% endfor %}</div></section>{% endif %}
-      {% if experience.highlights %}<section><h2 class="detail-title">{{ 'sections.highlights'|trans }}</h2><ul class="semantic-list">{% for item in experience.highlights %}<li>{{ item }}</li>{% endfor %}</ul></section>{% endif %}
+      {% if experience.summary %}
+        <section><h2 class="detail-title">{{ 'sections.overview'|trans }}</h2>
+          <div class="prose-content">{{ experience.summary.html|raw }}</div>
+        </section>
+      {% endif %}
+      {% if experience.responsibilities %}
+        <section>
+          <h2 class="detail-title">{{ 'sections.responsibilities'|trans }}</h2>
+          <ul class="semantic-list">
+            {% for item in experience.responsibilities %}
+              <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        </section>
+      {% endif %}
+      {% if experience.projects %}
+        <section><h2 class="detail-title">{{ 'sections.selected_work'|trans }}</h2>
+          <div class="grid gap-4">
+            {% for project in experience.projects %}
+              <article class="card rounded-md p-6"><h3 class="card-title text-lg mb-4">{{ project.title }}</h3>
+                {% if project.description %}
+                  <ul class="condensed-list">
+                    {% for item in project.description %}
+                      <li>{{ item.name }}</li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+                <div class="mt-6 flex flex-wrap gap-2">
+                  {% for technology in project.technologies %}
+                    <twig:TechnologyBadge :technology="technology"/>
+                  {% endfor %}
+                </div>
+              </article>
+            {% endfor %}</div>
+        </section>
+      {% endif %}
     </div>
-    <aside class="aside-rule"><h2 class="muted-text mb-5 text-xs font-semibold uppercase tracking-[0.18em]">{{ 'sections.technology'|trans }}</h2><div class="flex flex-wrap gap-2">{% for technology in experience.technologies %}<twig:TechnologyBadge :technology="technology" />{% endfor %}</div>{% if experience.links %}<div class="mt-10 space-y-3">{% for link in experience.links %}<a class="text-link block" href="{{ link.url }}" target="_blank" rel="noreferrer">{{ link.label }} ↗</a>{% endfor %}</div>{% endif %}</aside>
+    <aside class="aside-rule">
+      <h2 class="muted-text mb-5 text-xs font-semibold uppercase tracking-[0.18em]">{{ 'sections.technology'|trans }}</h2>
+      <div class="flex flex-wrap gap-2">
+        {% for technology in experience.technologies %}
+          <twig:TechnologyBadge :technology="technology"/>
+        {% endfor %}
+      </div>{% if experience.links %}
+      <div class="mt-10 space-y-3">
+      {% for link in experience.links %}
+        <a class="text-link block" href="{{ link.url }}" target="_blank" rel="noreferrer">{{ link.label }}</a>
+      {% endfor %}
+      </div>{% endif %}
+    </aside>
   </div>
 {% endblock %}

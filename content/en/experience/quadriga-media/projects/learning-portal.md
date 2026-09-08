@@ -1,1 +1,0 @@
-Developed course and student administration with CRM integration, including visual design, conception, and maintenance. Modular courses combine videos, Markdown documents, and podcasts; quizzes and web-based training support knowledge checks through multiple choice and SCORM.

@@ -13,6 +13,7 @@ use App\Content\Model\MarkdownContent;
 use App\Content\Model\Period;
 use App\Content\Model\Profile;
 use App\Content\Model\Project;
+use App\Content\Model\ProjectDescription;
 use App\Content\Model\Technology;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symfony\Component\Yaml\Exception\ParseException;
@@ -35,9 +36,16 @@ final readonly class YamlContentLoader
             $this->string($data, 'title'),
             $this->string($data, 'tagline'),
             $this->nullableString($data, 'location'),
+            $this->nullableString($data, 'email'),
+            $this->nullableString($data, 'phone'),
+            $this->nullableString($data, 'resume'),
+            $this->nullableString($data, 'introduction_title'),
             $this->markdown($path, $data, 'introduction'),
             $this->technologies($data['technologies'] ?? []),
             $this->links($data['links'] ?? []),
+            $this->profileItems($data['education'] ?? [], 'education'),
+            $this->profileItems($data['languages'] ?? [], 'languages'),
+            $this->profileItems($data['certifications'] ?? [], 'certifications'),
             $this->stringList($data['featured_experiences'] ?? [], 'featured_experiences'),
             $this->stringList($data['featured_projects'] ?? [], 'featured_projects'),
         );
@@ -55,7 +63,7 @@ final readonly class YamlContentLoader
             }
             $projects[] = new ExperienceProject(
                 $this->string($project, 'title'),
-                $this->markdown($path, $project, 'description'),
+                $this->descriptions($project['description'] ?? []),
                 $this->technologies($project['technologies'] ?? []),
             );
         }
@@ -68,7 +76,6 @@ final readonly class YamlContentLoader
             $this->nullableString($data, 'location'),
             $this->markdown($path, $data, 'summary'),
             $this->stringList($data['responsibilities'] ?? [], 'responsibilities'),
-            $this->stringList($data['highlights'] ?? [], 'highlights'),
             $projects,
             $this->technologies($data['technologies'] ?? []),
             $this->links($data['links'] ?? []),
@@ -85,7 +92,7 @@ final readonly class YamlContentLoader
             $this->string($data, 'title'),
             $this->string($data, 'summary'),
             isset($data['period']) ? $this->period($data['period']) : null,
-            $this->markdown($path, $data, 'description'),
+            $this->descriptions($data['description'] ?? []),
             $this->markdown($path, $data, 'motivation'),
             $this->markdown($path, $data, 'architecture'),
             $this->stringList($data['highlights'] ?? [], 'highlights'),
@@ -160,6 +167,12 @@ final readonly class YamlContentLoader
         return array_map(static fn (string $name): Technology => new Technology($name), $this->stringList($value, 'technologies'));
     }
 
+    /** @return list<ProjectDescription> */
+    private function descriptions(mixed $value): array
+    {
+        return array_map(static fn (string $name): ProjectDescription => new ProjectDescription($name), $this->stringList($value, 'description'));
+    }
+
     /** @return list<Link> */
     private function links(mixed $value): array
     {
@@ -172,6 +185,24 @@ final readonly class YamlContentLoader
         }
 
         return $links;
+    }
+
+    /** @return list<array{title: string, detail: string, meta: ?string}> */
+    private function profileItems(mixed $value, string $field): array
+    {
+        $items = [];
+        foreach ($this->array($value, $field) as $index => $item) {
+            if (!\is_array($item)) {
+                throw new ContentException(\sprintf('%s.%s must be a map.', $field, $index));
+            }
+            $items[] = [
+                'title' => $this->string($item, 'title'),
+                'detail' => $this->string($item, 'detail'),
+                'meta' => $this->nullableString($item, 'meta'),
+            ];
+        }
+
+        return $items;
     }
 
     /** @return list<string> */

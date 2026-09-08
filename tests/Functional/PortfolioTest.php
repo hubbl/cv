@@ -13,14 +13,19 @@ final class PortfolioTest extends WebTestCase
         $client = static::createClient();
         $client->request('GET', '/de/');
         self::assertResponseIsSuccessful();
-        self::assertSelectorTextContains('h1', 'Web-/Anwendungsentwicklung');
+        self::assertSelectorTextContains('h1', 'Anwendungsentwicklung');
+        self::assertSelectorTextContains('body', 'Ausbildung zum IT-Assistenten');
+        self::assertSelectorExists('a[href="mailto:webmaster@dennis-otto.net"]');
+        self::assertSelectorExists('a[href="tel:+4917662247871"]');
+        self::assertSelectorExists('a[href*="Lebenslauf_Dennis_Otto_Aug2026"]');
         self::assertSelectorExists('a[hreflang="en"][href="/en/"]');
         self::assertSelectorExists('meta[property="og:title"][content*="Dennis Otto"]');
         self::assertSelectorExists('meta[property="og:image"][content="http://localhost:8080/og.png"]');
 
         $client->request('GET', '/en/');
         self::assertResponseIsSuccessful();
-        self::assertSelectorTextContains('h2', 'Backend, integration, and data');
+        self::assertSelectorTextContains('h2', 'Full Stack, APIs, Data Transformation');
+        self::assertSelectorTextContains('body', 'Education and languages');
     }
 
     public function testExperiencePagesAndEquivalentLanguageSwitch(): void
@@ -47,12 +52,12 @@ final class PortfolioTest extends WebTestCase
 
         $client->request('GET', '/de/impressum');
         self::assertResponseIsSuccessful();
-        self::assertSelectorTextContains('h1', 'Angaben zum Anbieter');
+        self::assertSelectorTextContains('h1', 'Impressum');
         self::assertSelectorExists('a[hreflang="en"][href="/en/impressum"]');
 
         $client->request('GET', '/en/datenschutz');
         self::assertResponseIsSuccessful();
-        self::assertSelectorTextContains('h1', 'Privacy information');
+        self::assertSelectorTextContains('h1', 'Privacy Policy');
         self::assertSelectorExists('a[hreflang="de"][href="/de/datenschutz"]');
     }
 

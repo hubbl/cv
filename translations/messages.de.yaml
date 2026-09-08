@@ -1,5 +1,5 @@
 site:
-  title: 'Dennis Otto — Senior Backend-Entwickler'
+  title: 'Dennis Otto - Senior Backend-Entwickler'
   meta_description: 'Lebenslauf von Dennis Otto mit Fokus auf Web- und Anwendungsentwicklung, Systemintegration und Data Engineering.'
 navigation:
   primary: Hauptnavigation
@@ -28,7 +28,14 @@ period:
   present: heute
 home:
   profile: Profil
-  about_title: 'Backend, Integration und Daten.'
+  qualifications_eyebrow: Hintergrund
+  qualifications_title: Ausbildung und Sprachen
+  education: Ausbildung
+  languages: Sprachen
+  certifications: Zertifikate
+  contact_eyebrow: Kontakt
+  contact_title: Lassen Sie uns ins Gespräch kommen
+  contact_intro: 'Sie möchten sich fachlich austauschen oder haben eine passende Aufgabe im Blick? Ich freue mich über eine vertrauliche Nachricht oder einen Anruf.'
   experience_title: 'Berufliche Stationen'
   projects_title: 'Ausgewählte Projekte'
 experience:
@@ -52,9 +59,12 @@ sections:
   architecture: Architektur
 actions:
   view_all: Alle ansehen
+  click_for_more: Klicken für mehr
   back_experience: Zur Berufserfahrung
   back_projects: Zu den Projekten
   home: Zur Startseite
+  write_email: E-Mail schreiben
+  view_resume: Lebenslauf ansehen
 error:
   not_found: Seite nicht gefunden
   not_found_text: 'Der angeforderte Inhalt ist nicht vorhanden oder noch nicht übersetzt.'

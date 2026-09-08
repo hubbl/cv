@@ -1,6 +1,18 @@
 {% extends 'base.html.twig' %}
 {% block title %}{{ 'experience.title'|trans }} — Dennis Otto{% endblock %}
 {% block body %}
-  <header class="page-header"><div class="container-shell"><p class="eyebrow">{{ 'experience.eyebrow'|trans }}</p><h1 class="page-title">{{ 'experience.title'|trans }}</h1><p class="page-intro">{{ 'experience.intro'|trans }}</p></div></header>
-  <section class="container-shell section-space"><div class="timeline relative grid gap-5">{% for experience in experiences %}<div class="relative pl-8 sm:pl-0"><span class="timeline-dot"></span><twig:ExperienceCard :experience="experience" /></div>{% endfor %}</div></section>
+  <header class="page-header">
+    <div class="container-shell"><p class="eyebrow">{{ 'experience.eyebrow'|trans }}</p>
+      <h1 class="page-title">{{ 'experience.title'|trans }}</h1>
+      <p class="page-intro">{{ 'experience.intro'|trans }}</p></div>
+  </header>
+  <section class="container-shell section-space">
+    <div class="timeline relative grid gap-5">
+      {% for experience in experiences %}
+        <div class="relative pl-8 sm:pl-0"><span class="timeline-dot"></span>
+          <twig:ExperienceCard :experience="experience"/>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
 {% endblock %}

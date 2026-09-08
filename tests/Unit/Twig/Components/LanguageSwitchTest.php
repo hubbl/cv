@@ -30,12 +30,13 @@ final class LanguageSwitchTest extends TestCase
         try {
             $locator = new LocalizedContentLocator($directory, ['de', 'en']);
             $sanitizer = $this->createStub(HtmlSanitizerInterface::class);
+            $markdown = new MarkdownRenderer(new CommonMarkConverter(), $sanitizer);
             $loader = new YamlContentLoader(
                 $locator,
-                new MarkdownRenderer(new CommonMarkConverter(), $sanitizer),
+                $markdown,
                 Validation::createValidatorBuilder()->enableAttributeMapping()->getValidator(),
             );
-            $repository = new ContentRepository($locator, $loader, new ArrayAdapter(), 'test');
+            $repository = new ContentRepository($locator, $loader, $markdown, new ArrayAdapter(), 'test');
 
             $request = Request::create('/de/projects/draft');
             $request->setLocale('de');

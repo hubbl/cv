@@ -108,7 +108,9 @@ docker compose up --build
 Open `http://localhost:8080/de/`. The local project is mounted read-only at `/app`,
 while container-managed `vendor/` dependencies and writable `var/` runtime data live
 in Docker volumes shared by the web and Tailwind services. A separate `tailwind`
-service watches template and style changes. Changes to PHP, configuration, YAML,
+service polls template, PHP, and style sources for content changes. This avoids
+unreliable filesystem events when a Windows directory is mounted into Docker via
+WSL. Changes to PHP, configuration, YAML,
 Markdown, Twig, CSS, and JavaScript are therefore reflected without an image rebuild.
 Generated host files under `public/assets/` are masked inside the web container so
 that Symfony's development AssetMapper always serves the current Tailwind output.

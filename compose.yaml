@@ -26,11 +26,12 @@ services:
     build:
       context: .
     image: cv-portfolio:dev
-    command: ["php", "bin/console", "tailwind:build", "--watch"]
+    command: ["sh", "docker/tailwind-watch.sh"]
     environment:
       APP_ENV: dev
       APP_DEBUG: 1
       APP_SECRET: local-docker-secret
+      TAILWIND_POLL_INTERVAL: "0.5"
     volumes:
       - .:/app:ro
       - app-vendor:/app/vendor

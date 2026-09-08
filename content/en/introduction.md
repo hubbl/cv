@@ -1,3 +1,3 @@
-I work at the intersection of **web and application development, systems integration, and data engineering**.
+I have been developing and modernizing web and data applications since 2008.
 
-I have developed and modernized web applications since 2008. My work focuses on PHP backends, asynchronous systems integration, and data platforms. Alongside implementation, I take technical responsibility for architecture, concepts, and reviews.
+My focus is on PHP, Python, APIs, integration architectures, and reliable event-driven processes. I combine technical depth with pragmatic collaboration—from pair programming and code reviews to Scrum and Kanban.

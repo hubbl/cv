@@ -29,8 +29,6 @@ final readonly class Experience
         public ?MarkdownContent $summary,
         #[Assert\All([new Assert\NotBlank()])]
         public array $responsibilities,
-        #[Assert\All([new Assert\NotBlank()])]
-        public array $highlights,
         #[Assert\Valid]
         public array $projects,
         #[Assert\Valid]

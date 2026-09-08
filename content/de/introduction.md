@@ -1,3 +1,5 @@
-Ich werkele an der Schnittstelle von **Web- und Anwendungsentwicklung, Systemintegration und Data Engineering**.
+Seit 2008 entwickle und modernisiere ich Web- und Datenanwendungen. 
 
-Seit 2008 entwickle und modernisiere ich Web-Anwendungen. Meine Schwerpunkte liegen auf PHP-Backends, asynchroner Systemintegration und Datenplattformen. Neben der Umsetzung übernehme ich technische Verantwortung für Architektur, Konzeption und Reviews.
+Mein Schwerpunkt liegt auf PHP, Python, APIs, Integrationsarchitekturen und zuverlässigen 
+eventgetriebenen Prozessen. Ich verbinde technische Tiefe mit pragmatischer Zusammenarbeit -
+von Pair Programming und Code Reviews bis zu Scrum und Kanban.

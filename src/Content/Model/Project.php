@@ -23,7 +23,7 @@ final readonly class Project
         #[Assert\Valid]
         public ?Period $period,
         #[Assert\Valid]
-        public ?MarkdownContent $description,
+        public array $description,
         #[Assert\Valid]
         public ?MarkdownContent $motivation,
         #[Assert\Valid]

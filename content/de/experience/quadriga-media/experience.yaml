@@ -6,10 +6,10 @@ period:
 location: Berlin, Deutschland
 summary: summary.md
 responsibilities:
-  - Konzeption und Umsetzung von Integrations- und Prozesslösungen
-  - Technischer Ansprechpartner und informeller Mentor
-  - Weiterentwicklung und schrittweise Modernisierung gewachsener PHP-Systeme
-highlights: []
+  - Konzeption und Architektur nutzerorientierter Anwendungen in enger Abstimmung mit den Fachbereichen
+  - Umsetzung von Integrations- und Prozesslösungen über Systemgrenzen hinweg
+  - Technischer Ansprechpartner und informeller Mentor im Entwicklungsteam
+  - Schrittweise Modernisierung gewachsener PHP-Systeme bei laufendem Betrieb
 technologies:
   - PHP
   - Laravel
@@ -22,27 +22,43 @@ technologies:
 links: []
 projects:
   - title: Stellenanzeigen-Portal
-    description: projects/stellenanzeigen-portal.md
+    description:
+      - Bündelung der Stellenanzeigenverwaltung in einer zentralen Plattform
+      - Versorgung mehrerer Thin-Frontends über eine gemeinsame API
+      - Integration der Zahlungsabwicklung über Pretix und Magento
+      - Abbildung von Kontingenten für Media-Agenturen
+      - Verantwortung von Konzeption und Gestaltung bis zu Wartung und Weiterentwicklung
     technologies:
       - PHP
       - Laravel
       - JavaScript
       - SCSS
   - title: Newsletter- & Marketing-Software
-    description: projects/newsletter-marketing-software.md
+    description:
+      - Entwicklung eines Queue-basierten, entkoppelten E-Mail-Versandsystems
+      - Verbesserung der Versandqualität durch integrierte Spam- und Zustellbarkeitsprüfungen
+      - Flexible Kampagnenvorbereitung durch Listen- und Templateverwaltung sowie dynamische Excel-Importe
+      - Konzeption in enger Zusammenarbeit mit dem Marketing
     technologies:
       - PHP
       - Laravel
       - AWS SQS
   - title: Lernportal
-    description: projects/lernportal.md
+    description:
+      - Entwicklung einer Kurs- und Teilnehmerverwaltung mit CRM-Anbindung
+      - Flexible Lerninhalte durch modulare Kurse mit Videos, Markdown-Dokumenten und Podcasts
+      - Wissensprüfung durch Quizze und webbasierte Trainings mit Multiple-Choice- und SCORM-Inhalten
+      - Verantwortung von Konzeption und Gestaltung bis zu Wartung und Weiterentwicklung
     technologies:
       - PHP
       - CodeIgniter
       - JavaScript
       - SCSS
   - title: Award-Bewerbungsportale
-    description: projects/award-bewerbungsportale.md
+    description:
+      - Wiederverwendbares Multi-Tenant-System für vier bis sechs Awards pro Jahr samt Historie
+      - Getrennte Abläufe und Oberflächen für Bewerber und Jurys
+      - Integrierte Zahlungsabwicklung über Pretix beziehungsweise Magento
     technologies:
       - PHP
       - CodeIgniter
