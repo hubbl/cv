@@ -2,12 +2,43 @@ services:
   app:
     build:
       context: .
+    image: cv-portfolio:dev
     environment:
       APP_ENV: dev
       APP_DEBUG: 1
       APP_SECRET: local-docker-secret
+    depends_on:
+      tailwind:
+        condition: service_started
     ports:
       - "8080:8080"
     volumes:
-      - ./content:/app/content:ro
+      - .:/app:ro
+      - app-vendor:/app/vendor
+      - app-var:/app/var
+      - type: tmpfs
+        target: /app/public/assets
+        read_only: true
+      - ./docker/php.dev.ini:/usr/local/etc/php/conf.d/zz-dev.ini:ro
     init: true
+
+  tailwind:
+    build:
+      context: .
+    image: cv-portfolio:dev
+    command: ["php", "bin/console", "tailwind:build", "--watch"]
+    environment:
+      APP_ENV: dev
+      APP_DEBUG: 1
+      APP_SECRET: local-docker-secret
+    volumes:
+      - .:/app:ro
+      - app-vendor:/app/vendor
+      - app-var:/app/var
+    healthcheck:
+      disable: true
+    init: true
+
+volumes:
+  app-vendor:
+  app-var:

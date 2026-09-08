@@ -105,9 +105,32 @@ Docker is the shortest path if PHP and Composer are not installed locally:
 docker compose up --build
 ```
 
-Open `http://localhost:8080/de/`. The local `content/` directory is mounted read-only, so YAML and Markdown edits are immediately reflected while the container runs in `dev`. Rebuild after changing PHP, Twig, or CSS.
+Open `http://localhost:8080/de/`. The local project is mounted read-only at `/app`,
+while container-managed `vendor/` dependencies and writable `var/` runtime data live
+in Docker volumes shared by the web and Tailwind services. A separate `tailwind`
+service watches template and style changes. Changes to PHP, configuration, YAML,
+Markdown, Twig, CSS, and JavaScript are therefore reflected without an image rebuild.
+Generated host files under `public/assets/` are masked inside the web container so
+that Symfony's development AssetMapper always serves the current Tailwind output.
 
-The multi-stage image compiles Tailwind and AssetMapper assets during the build. The final image contains only FrankenPHP, PHP, Symfony, static assets, and content—no Node process or database.
+After changing `composer.lock`, rebuild the image and recreate the development
+volumes so that `/app/vendor` is initialized from the updated image:
+
+```bash
+docker compose down -v
+docker compose up --build
+```
+
+Follow the Tailwind watcher output with:
+
+```bash
+docker compose logs -f tailwind
+```
+
+The multi-stage image compiles Tailwind and AssetMapper assets during the production
+build. The final image contains only FrankenPHP, PHP, Symfony, static assets, and
+content—no Node process or database. The local Compose setup reuses PHP's standalone
+Tailwind binary in its additional watcher service.
 
 ## Tests and code quality
 
@@ -144,26 +167,22 @@ Point `cv.local` to the IP printed by `minikube ip`, then open `http://cv.local/
 
 ## Deployment with Deployer
 
-The server needs SSH access, Git, PHP 8.5 with the required extensions, Composer 2, PHP-FPM, and nginx. Its layout defaults to:
+Production is built locally in Docker and uploaded as an archive to the SSH alias
+`strato`, under `.../htdocs/dennis-otto.net_cv`.
+The public symlink `dennis-otto.net/cv` must point to `../dennis-otto.net_cv/current/public`.
+The server needs PHP >= 8.5 for HTTP, STRATO's PHP 8.5 CLI, SSH and tar; no
+server-side Git, Composer or asset build is used. Symfony's production cache is
+warmed in the unpublished release before `current` is switched.
 
-```text
-/var/www/cv/
-├── current -> releases/...
-├── releases/
-└── shared/.env.local
+Build locally without contacting the server:
+
+```powershell
+docker compose -f compose.deploy.yaml run --build --rm build
 ```
 
-Create `shared/.env.local` on the server with `APP_ENV=prod`, `APP_DEBUG=0`, a strong `APP_SECRET`, and the canonical `APP_PUBLIC_URL=https://cv.example.com` used by social metadata. Configure nginx using `deploy/nginx.conf.example`, then deploy from a machine with development dependencies installed:
-
-```bash
-export DEPLOY_HOST=cv.example.com
-export DEPLOY_USER=deploy
-export DEPLOY_PATH=/var/www/cv
-export DEPLOY_REPOSITORY=git@github.com:your-user/cv-portfolio.git
-vendor/bin/dep deploy
-```
-
-Optional `DEPLOY_IDENTITY_FILE` selects a dedicated SSH key. Do not commit secrets. Deployer creates an atomic release, installs optimized production dependencies, builds Tailwind and AssetMapper assets, warms Symfony's cache, updates the `current` symlink, and retains five releases. There is intentionally no CI/CD pipeline and no production Kubernetes dependency in this version.
+See [the STRATO deployment guide](deploy/README.md) for temporary SSH credentials
+inside Docker, local checks, the one-time migration of the existing Hallo test
+folder, production settings, the later deployment command and rollback.
 
 ## Design decisions
 

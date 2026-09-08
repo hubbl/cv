@@ -7,7 +7,7 @@ RUN install-php-extensions dom intl opcache
 WORKDIR /app
 
 COPY --from=composer /usr/bin/composer /usr/bin/composer
-COPY composer.json ./
+COPY composer.json composer.lock ./
 RUN composer install --no-dev --prefer-dist --no-interaction --no-progress --no-scripts
 
 COPY . .

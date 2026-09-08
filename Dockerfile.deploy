@@ -1,0 +1,59 @@
+# syntax=docker/dockerfile:1
+FROM composer:2 AS composer
+
+FROM php:8.5-cli-bookworm AS base
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends git openssh-client unzip libicu-dev \
+    && docker-php-ext-install -j"$(nproc)" intl \
+    && rm -rf /var/lib/apt/lists/*
+COPY --from=composer /usr/bin/composer /usr/local/bin/composer
+ENV COMPOSER_ALLOW_SUPERUSER=1
+
+# Deployer uses locked development dependencies, isolated from the artifact.
+FROM base AS deployer
+WORKDIR /opt/deployer
+COPY composer.json composer.lock ./
+RUN composer install --prefer-dist --no-interaction --no-progress --no-scripts
+COPY docker/deploy-entrypoint.sh /usr/local/bin/deploy-entrypoint
+COPY docker/prepare-ssh.php /usr/local/bin/prepare-ssh.php
+RUN sed -i 's/\r$//' /usr/local/bin/deploy-entrypoint \
+    && chmod 755 /usr/local/bin/deploy-entrypoint
+WORKDIR /workspace
+ENTRYPOINT ["/usr/local/bin/deploy-entrypoint"]
+CMD ["list"]
+
+FROM base AS artifact
+WORKDIR /app
+ENV APP_ENV=prod APP_DEBUG=0 APP_SECRET=build-only-not-a-production-secret
+COPY composer.json composer.lock symfony.lock ./
+RUN composer install --no-dev --prefer-dist --no-interaction --no-progress --no-scripts
+# Explicit inputs: no local secrets, vendor, Git data or development tooling.
+COPY .env ./
+COPY bin/console bin/console
+COPY config/ config/
+COPY src/ src/
+COPY templates/ templates/
+COPY translations/ translations/
+COPY content/ content/
+COPY assets/ assets/
+COPY public/ public/
+COPY deploy/root.htaccess .htaccess
+RUN composer dump-autoload --no-dev --classmap-authoritative --no-scripts \
+    && composer check-platform-reqs --no-dev \
+    && php bin/console tailwind:build --minify \
+    && php bin/console asset-map:compile \
+    && php bin/console lint:container \
+    && rm -rf var \
+    && mkdir -p var/cache var/log \
+    && find . -type d -exec chmod 755 {} + \
+    && find . -type f -exec chmod 644 {} + \
+    && tar -czf /release.tar.gz .
+COPY deploy/verify-artifact.php /usr/local/bin/verify-artifact.php
+RUN mkdir /tmp/cv-artifact-check \
+    && tar -xzf /release.tar.gz -C /tmp/cv-artifact-check \
+    && php /usr/local/bin/verify-artifact.php /tmp/cv-artifact-check \
+    && rm -rf /tmp/cv-artifact-check
+COPY docker/export-artifact.sh /usr/local/bin/export-artifact
+RUN sed -i 's/\r$//' /usr/local/bin/export-artifact \
+    && chmod 755 /usr/local/bin/export-artifact
+ENTRYPOINT ["/usr/local/bin/export-artifact"]

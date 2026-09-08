@@ -1,0 +1,2 @@
+# Fail closed if a domain or symlink accidentally exposes the release root.
+Require all denied

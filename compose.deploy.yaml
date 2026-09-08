@@ -1,0 +1,31 @@
+name: cv-deploy
+
+services:
+  build:
+    build:
+      context: .
+      dockerfile: Dockerfile.deploy
+      target: artifact
+    network_mode: none
+    volumes:
+      - ./.deploy:/output
+
+  deployer:
+    build:
+      context: .
+      dockerfile: Dockerfile.deploy
+      target: deployer
+    environment:
+      SSH_SOURCE_DIRECTORY: ${SSH_DIRECTORY:-${USERPROFILE}/.ssh}
+      DEPLOY_USER: ${DEPLOY_USER:-}
+      DO_NOT_SHOW_BANNER: "true"
+    volumes:
+      - .:/workspace:ro
+      - type: bind
+        source: ${SSH_DIRECTORY:-${USERPROFILE}/.ssh}
+        target: /ssh-source
+        read_only: true
+        bind:
+          create_host_path: false
+    tmpfs:
+      - /root/.ssh:mode=0700
