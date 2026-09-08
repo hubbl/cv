@@ -6,7 +6,9 @@ namespace App\Content\Repository;
 
 use App\Content\Loader\LocalizedContentLocator;
 use App\Content\Loader\YamlContentLoader;
+use App\Content\Markdown\MarkdownRenderer;
 use App\Content\Model\Experience;
+use App\Content\Model\MarkdownContent;
 use App\Content\Model\Profile;
 use App\Content\Model\Project;
 use Psr\Cache\CacheItemPoolInterface;
@@ -16,6 +18,7 @@ final readonly class ContentRepository
     public function __construct(
         private LocalizedContentLocator $locator,
         private YamlContentLoader $loader,
+        private MarkdownRenderer $markdownRenderer,
         private CacheItemPoolInterface $cache,
         private string $environment,
     ) {
@@ -24,6 +27,14 @@ final readonly class ContentRepository
     public function profile(string $locale): Profile
     {
         return $this->remember('profile.'.$locale, fn (): Profile => $this->loader->profile($this->locator->profile($locale)));
+    }
+
+    public function markdown(string $locale, string $name): MarkdownContent
+    {
+        return $this->remember(
+            'markdown.'.$locale.'.'.$name,
+            fn (): MarkdownContent => $this->markdownRenderer->renderFile($this->locator->markdown($locale, $name)),
+        );
     }
 
     /** @return list<Experience> */

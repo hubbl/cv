@@ -15,6 +15,15 @@ theme:
   dark: Dunkler Modus
 footer:
   built_with: 'Gebaut mit Symfony, Twig & Tailwind CSS.'
+  legal_navigation: Rechtliche Informationen
+  imprint: Impressum
+  privacy: Datenschutz
+imprint:
+  title: Impressum
+  description: Anbieterkennzeichnung dieser Website.
+privacy:
+  title: Datenschutz
+  description: Kurze Hinweise zur Datenverarbeitung auf dieser Website.
 period:
   present: heute
 home:

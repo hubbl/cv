@@ -38,6 +38,24 @@ final class PortfolioTest extends WebTestCase
         self::assertSelectorExists('a[hreflang="en"][href="/en/experience/smartbroker"]');
     }
 
+    public function testLegalPagesAreLinkedAndLocalized(): void
+    {
+        $client = static::createClient();
+        $client->request('GET', '/de/');
+        self::assertSelectorExists('footer a[href="/de/impressum"]');
+        self::assertSelectorExists('footer a[href="/de/datenschutz"]');
+
+        $client->request('GET', '/de/impressum');
+        self::assertResponseIsSuccessful();
+        self::assertSelectorTextContains('h1', 'Angaben zum Anbieter');
+        self::assertSelectorExists('a[hreflang="en"][href="/en/impressum"]');
+
+        $client->request('GET', '/en/datenschutz');
+        self::assertResponseIsSuccessful();
+        self::assertSelectorTextContains('h1', 'Privacy information');
+        self::assertSelectorExists('a[hreflang="de"][href="/de/datenschutz"]');
+    }
+
     public function testUnknownSlugMissingTranslationAndLocaleReturnNotFound(): void
     {
         $client = static::createClient();

@@ -21,6 +21,13 @@ final readonly class LocalizedContentLocator
         return $this->existingPath($locale, 'profile.yaml');
     }
 
+    public function markdown(string $locale, string $name): string
+    {
+        $this->assertSlug($name);
+
+        return $this->existingPath($locale, $name.'.md');
+    }
+
     public function experience(string $locale, string $slug): string
     {
         $this->assertSlug($slug);

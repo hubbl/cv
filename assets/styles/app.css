@@ -124,8 +124,10 @@
   .semantic-list li { @apply relative pl-6 leading-7; }
   .semantic-list li::before { content: ""; @apply absolute left-0 top-[0.7rem] size-1.5 rounded-full; background: var(--accent); }
   .prose-content { @apply space-y-5 leading-8; color: var(--text-soft); }
-  .prose-content h2, .prose-content h3 { @apply mt-8 font-serif font-semibold; color: var(--text); }
+  .prose-content h1, .prose-content h2, .prose-content h3 { @apply font-serif font-semibold; color: var(--text); }
+  .prose-content h1 { @apply mb-8 text-4xl tracking-[-0.025em] sm:text-6xl; text-wrap: balance; }
   .prose-content h2 { @apply text-2xl; }
+  .prose-content h2, .prose-content h3 { @apply mt-8; }
   .prose-content h3 { @apply text-xl; }
   .prose-content ul { @apply space-y-3 pl-5; }
   .prose-content li { @apply list-disc; }

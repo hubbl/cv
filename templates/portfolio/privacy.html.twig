@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'privacy.title'|trans }} — Dennis Otto{% endblock %}
+{% block meta_description %}{{ 'privacy.description'|trans }}{% endblock %}
+
+{% block body %}
+  <section class="container-shell section-space">
+    <div class="prose-content max-w-3xl text-lg">{{ content.html|raw }}</div>
+  </section>
+{% endblock %}

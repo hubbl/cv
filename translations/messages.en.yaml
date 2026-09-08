@@ -15,6 +15,15 @@ theme:
   dark: Dark mode
 footer:
   built_with: 'Built with Symfony, Twig & Tailwind CSS.'
+  legal_navigation: Legal information
+  imprint: Imprint
+  privacy: Privacy
+imprint:
+  title: Imprint
+  description: Provider information for this website.
+privacy:
+  title: Privacy
+  description: Brief information about data processing on this website.
 period:
   present: present
 home:

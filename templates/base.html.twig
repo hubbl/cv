@@ -66,7 +66,13 @@
   <footer class="site-footer">
     <div class="container-shell site-footer-inner">
       <p>© {{ 'now'|date('Y') }} Dennis Otto</p>
-      <p>{{ 'footer.built_with'|trans }}</p>
+      <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
+        <nav class="flex gap-4" aria-label="{{ 'footer.legal_navigation'|trans }}">
+          <a class="text-link" href="{{ path('app_imprint', {_locale: app.request.locale}) }}">{{ 'footer.imprint'|trans }}</a>
+          <a class="text-link" href="{{ path('app_privacy', {_locale: app.request.locale}) }}">{{ 'footer.privacy'|trans }}</a>
+        </nav>
+        <p>{{ 'footer.built_with'|trans }}</p>
+      </div>
     </div>
   </footer>
 </body>
