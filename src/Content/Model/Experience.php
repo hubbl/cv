@@ -10,7 +10,6 @@ final readonly class Experience
 {
     /**
      * @param list<string>            $responsibilities
-     * @param list<string>            $highlights
      * @param list<ExperienceProject> $projects
      * @param list<Technology>        $technologies
      * @param list<Link>              $links

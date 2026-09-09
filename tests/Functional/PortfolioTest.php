@@ -17,7 +17,7 @@ final class PortfolioTest extends WebTestCase
         self::assertSelectorTextContains('body', 'Ausbildung zum IT-Assistenten');
         self::assertSelectorExists('a[href="mailto:webmaster@dennis-otto.net"]');
         self::assertSelectorExists('a[href="tel:+4917662247871"]');
-        self::assertSelectorExists('a[href*="Lebenslauf_Dennis_Otto_Aug2026"]');
+        self::assertSelectorExists('a[href*="Lebenslauf_Dennis_Otto_DE"]');
         self::assertSelectorExists('a[hreflang="en"][href="/en/"]');
         self::assertSelectorExists('meta[property="og:title"][content*="Dennis Otto"]');
         self::assertSelectorExists('meta[property="og:image"][content="http://localhost:8080/og.png"]');
@@ -26,6 +26,7 @@ final class PortfolioTest extends WebTestCase
         self::assertResponseIsSuccessful();
         self::assertSelectorTextContains('h2', 'Full Stack, APIs, Data Transformation');
         self::assertSelectorTextContains('body', 'Education and languages');
+        self::assertSelectorExists('a[href*="CV_Dennis_Otto_EN"]');
     }
 
     public function testExperiencePagesAndEquivalentLanguageSwitch(): void

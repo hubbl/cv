@@ -4,7 +4,7 @@
     "type": "project",
     "license": "MIT",
     "require": {
-        "php": ">=8.5",
+        "php": ">=8.4",
         "ext-ctype": "*",
         "ext-dom": "*",
         "ext-iconv": "*",
@@ -67,7 +67,7 @@
         "post-update-cmd": ["@auto-scripts"],
         "qa": ["@test", "@phpstan", "@cs"],
         "test": "php bin/phpunit",
-        "phpstan": "phpstan analyse",
+        "phpstan": "phpstan analyse --memory-limit=512M",
         "cs": "php-cs-fixer fix --dry-run --diff"
     },
     "extra": {

@@ -9,9 +9,10 @@ use Symfony\Component\Validator\Constraints as Assert;
 final readonly class Project
 {
     /**
-     * @param list<string>     $highlights
-     * @param list<Technology> $technologies
-     * @param list<Link>       $links
+     * @param list<ProjectDescription> $description
+     * @param list<string>             $highlights
+     * @param list<Technology>         $technologies
+     * @param list<Link>               $links
      */
     public function __construct(
         #[Assert\Regex('/^[a-z0-9]+(?:-[a-z0-9]+)*$/')]

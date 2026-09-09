@@ -40,7 +40,7 @@ projects:
   - title: Datenintegration & Middleware
     description:
       - Entkopplung von CRM- und Marketingsystemen durch eine asynchrone Middleware für Bloomreach, CleverReach, Sage und Bitrix24
-      - Zuverlässige Verarbeitung potenziell ungeordneter Events durch einen zustandsbasierten Bitrix24-Integrationsservice
+      - eigenständiger Integrationsservice für Bitrix24 zur zustandsbasierten Verarbeitung potenziell ungeordneter Events
     technologies:
       - PHP
       - Symfony

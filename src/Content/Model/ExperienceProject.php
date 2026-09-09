@@ -8,7 +8,10 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 final readonly class ExperienceProject
 {
-    /** @param list<Technology> $technologies */
+    /**
+     * @param list<ProjectDescription> $description
+     * @param list<Technology>         $technologies
+     */
     public function __construct(
         #[Assert\NotBlank]
         public string $title,

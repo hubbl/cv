@@ -39,7 +39,7 @@ final readonly class YamlContentLoader
             $this->nullableString($data, 'email'),
             $this->nullableString($data, 'phone'),
             $this->nullableString($data, 'resume'),
-            $this->nullableString($data, 'introduction_title'),
+            $this->string($data, 'introduction_title'),
             $this->markdown($path, $data, 'introduction'),
             $this->technologies($data['technologies'] ?? []),
             $this->links($data['links'] ?? []),

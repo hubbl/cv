@@ -9,7 +9,7 @@ responsibilities:
   - Konzeption und Architektur nutzerorientierter Anwendungen in enger Abstimmung mit den Fachbereichen
   - Umsetzung von Integrations- und Prozesslösungen über Systemgrenzen hinweg
   - Technischer Ansprechpartner und informeller Mentor im Entwicklungsteam
-  - Schrittweise Modernisierung gewachsener PHP-Systeme bei laufendem Betrieb
+  - Schrittweise Modernisierung gewachsener PHP-Systeme
 technologies:
   - PHP
   - Laravel

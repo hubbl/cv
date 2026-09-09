@@ -9,13 +9,13 @@ use Symfony\Component\Validator\Constraints as Assert;
 final readonly class Profile
 {
     /**
-     * @param list<Technology> $technologies
-     * @param list<Link>        $links
+     * @param list<Technology>                                          $technologies
+     * @param list<Link>                                                $links
      * @param list<array{title: string, detail: string, meta: ?string}> $education
      * @param list<array{title: string, detail: string, meta: ?string}> $languages
      * @param list<array{title: string, detail: string, meta: ?string}> $certifications
-     * @param list<string>      $featuredExperiences
-     * @param list<string>      $featuredProjects
+     * @param list<string>                                              $featuredExperiences
+     * @param list<string>                                              $featuredProjects
      */
     public function __construct(
         #[Assert\NotBlank]

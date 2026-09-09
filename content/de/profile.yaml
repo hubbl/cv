@@ -4,7 +4,7 @@ tagline: Konzeption, Entwicklung und Modernisierung nutzerorientierter und daten
 location: Mahlow, Deutschland
 email: webmaster@dennis-otto.net
 phone: +49 176 622 47 871
-resume: files/Lebenslauf_Dennis_Otto_Aug2026.pdf
+resume: files/Lebenslauf_Dennis_Otto_DE.pdf
 introduction_title: Fullstack, APIs, Datentransformation
 introduction: introduction.md
 technologies:
@@ -22,13 +22,11 @@ technologies:
   - RabbitMQ
   - Docker
   - AWS
-links: []
-# LinkedIn und GitHub erscheinen im Kontaktbereich, sobald hier gültige URLs
-# eingetragen werden, zum Beispiel:
-#  - label: LinkedIn
-#    url: https://www.linkedin.com/in/...
-#  - label: GitHub
-#    url: https://github.com/...
+links:
+  - label: LinkedIn
+    url: https://www.linkedin.com/in/dennis-otto-0ab45515b/
+  - label: GitHub
+    url: https://github.com/hubbl
 education:
   - title: Ausbildung zum IT-Assistenten
     detail: Oberstufenzentrum für Informations- und Medizintechnik

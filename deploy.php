@@ -55,7 +55,7 @@ task('deploy:preflight', function (): void {
         'exit(PHP_VERSION_ID >= 80500 && extension_loaded("ctype") && extension_loaded("dom") && extension_loaded("iconv") ? 0 : 1);',
     ));
     if (test('[ -d {{current_path}} ] && [ ! -L {{current_path}} ]')) {
-        throw new \RuntimeException('current is a real directory. Preserve the Hallo test directory under another name before the first deployment; see deploy/README.md.');
+        throw new \RuntimeException('current is a real directory. Preserve the existing placeholder directory under another name before the first deployment; see deploy/README.md.');
     }
     if (!test('[ -s {{deploy_path}}/shared/.env.local ]')) {
         throw new \RuntimeException('Create shared/.env.local on STRATO first; see deploy/production.env.example.');
